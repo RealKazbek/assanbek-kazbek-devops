@@ -19,6 +19,11 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh '''#!/usr/bin/env bash
+                    echo "Student: $STUDENT_NAME $STUDENT_SURNAME"
+                    echo "Group: $STUDENT_GROUP"
+                    echo "Student ID: $STUDENT_ID"
+                '''
                 sh 'python3 -m compileall app'
             }
         }
