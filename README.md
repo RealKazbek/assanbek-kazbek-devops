@@ -4,6 +4,10 @@ This repository is the individual DevOps laboratory project of Kazbek Assanbek (
 
 It demonstrates a complete Linux, Git, Docker, and Jenkins workflow. See `CHECKLIST.md` for current verification status, `reports/` for the report, `VIDEO_GUIDE.md` for the recording walkthrough, and `docs/OPERATIONS.md` for concise command explanations.
 
+Repository: https://github.com/RealKazbek/assanbek-kazbek-devops
+
+The local Jenkins job `Assanbek_Kazbek_DevOps` successfully checked out the public repository, compiled and tested the application, built `assanbek-kazbek-devops:jenkins`, and ran `assanbek-kazbek-jenkins-app`. Genuine console evidence is in `evidence/jenkins/console_build_2.txt`.
+
 ## Local verification
 
 ```sh

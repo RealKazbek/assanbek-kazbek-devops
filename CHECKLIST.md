@@ -13,19 +13,19 @@ Status key: PASS = performed and evidence exists; BLOCKED = needs an external ac
 | 7 | At least five meaningful commits | `git log --oneline` | Six substantive commits plus merge commit | `git log --oneline --graph` | PASS |
 | 8 | Ignore rules | `.gitignore`, `git check-ignore -v` | `*.log`, `backup/`, `.env` are ignored | `evidence/gitignore_check.txt` | PASS |
 | 9 | Branch and merge | `development` branch and merge | Documentation change committed and merged to `main` | `git log --oneline --graph` | PASS |
-| 10 | GitHub repository and push | Remote `RealKazbek/assanbek-kazbek-devops` | Not published: approval requested before external publication | Pending GitHub approval/authentication | BLOCKED |
+| 10 | GitHub repository and push | Remote `RealKazbek/assanbek-kazbek-devops` | Public repository created and main pushed; required files checked through GitHub API | `evidence/github/` | PASS |
 | 11 | Dockerfile and app | `Dockerfile`, `app/app.py` | Built real Python HTTP application with required instructions | `Dockerfile`; Docker evidence | PASS |
 | 12 | Image and container | Build/run, images and ps | Image built and named container run | `evidence/docker/docker_verification.txt` | PASS |
 | 13 | Environment variables | `docker run -e ...` | Required values and a changed-value example displayed | `evidence/docker/docker_verification.txt` | PASS |
 | 14 | Container management | logs, stop/start, rm, exec | All performed on dedicated laboratory containers | Docker evidence files | PASS |
 | 15 | Docker Compose | `docker compose up -d --build`, down | Compose start, logs, and down completed | `evidence/docker/compose_and_management.txt` | PASS |
-| 16 | Jenkins Job | Job `Assanbek_Kazbek_DevOps` | Cannot configure source until GitHub repository is published | Pending GitHub/Jenkins configuration | BLOCKED |
-| 17 | Declarative Jenkinsfile | Required meaningful stages | Jenkinsfile authored and reviewed; not executed by Jenkins | `Jenkinsfile` | BLOCKED |
-| 18 | Jenkins checkout from GitHub | SCM checkout then build/test/Docker | Blocked by unpublished GitHub repository and no configured Jenkins job | Pending | BLOCKED |
-| 19 | Jenkins environment output | Student details in console | Defined in Jenkinsfile but no actual console run | Pending | BLOCKED |
-| 20 | Successful pipeline | `Finished: SUCCESS` plus dashboard evidence | No Jenkins pipeline executed | Pending | BLOCKED |
-| 21 | Integrated workflow | Explain actual workflow | Linux, Git and Docker integration verified; GitHub/Jenkins segment pending | `docs/OPERATIONS.md`, report | BLOCKED |
+| 16 | Jenkins Job | Job `Assanbek_Kazbek_DevOps` | Authenticated local Jenkins job created through Jenkins CLI | `jenkins/job-config.xml`, `evidence/jenkins/` | PASS |
+| 17 | Declarative Jenkinsfile | Required meaningful stages | Checkout, Build, Test, Docker Build and Docker Run executed | `Jenkinsfile`, `evidence/jenkins/console_build_2.txt` | PASS |
+| 18 | Jenkins checkout from GitHub | SCM checkout then build/test/Docker | Build #2 checked out public GitHub commit `e16e061` | `evidence/jenkins/console_build_2.txt` | PASS |
+| 19 | Jenkins environment output | Student details in console | Required name, group and ID lines displayed | `evidence/jenkins/console_build_2.txt` | PASS |
+| 20 | Successful pipeline | `Finished: SUCCESS` plus dashboard evidence | Jenkins build #2 finished successfully; local authenticated API evidence retained | `evidence/jenkins/console_build_2_api.txt` | PASS |
+| 21 | Integrated workflow | Explain actual workflow | Linux → Git → GitHub → Jenkins → Test → Docker build/run → SUCCESS verified | `evidence/linux/`, `evidence/github/`, `evidence/jenkins/` | PASS |
 
 ## Instructor submission checklist
 
-Linux, Git, Docker and project artifacts are present. GitHub publication, Jenkins job/pipeline dashboard evidence, and the student's continuous own-voice video remain outstanding. The report is generated after the final local checks.
+All technical tasks are verified. The student's continuous own-voice video remains the final submission action. Jenkins evidence is API and console-output evidence because this task was completed using terminal/API only.

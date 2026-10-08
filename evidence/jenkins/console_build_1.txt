@@ -1,0 +1,141 @@
+Started Assanbek_Kazbek_DevOps #1
+Started from command line by kazbek_admin
+Checking out git https://github.com/RealKazbek/assanbek-kazbek-devops.git into /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps@script/428d80bf0967b1151e0abe4b2ff2c227d36bc7d3a8a3bf85b6320c722f63fdf9 to read Jenkinsfile
+The recommended git tool is: NONE
+Warning: CredentialId "" could not be found.
+Cloning the remote Git repository
+Cloning repository https://github.com/RealKazbek/assanbek-kazbek-devops.git
+ > git init /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps@script/428d80bf0967b1151e0abe4b2ff2c227d36bc7d3a8a3bf85b6320c722f63fdf9 # timeout=10
+Fetching upstream changes from https://github.com/RealKazbek/assanbek-kazbek-devops.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/RealKazbek/assanbek-kazbek-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/RealKazbek/assanbek-kazbek-devops.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 2a4a70a124ff6e42ca9224d706ab989e23a949fa (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 2a4a70a124ff6e42ca9224d706ab989e23a949fa # timeout=10
+Commit message: "Add Jenkins job configuration for GitHub pipeline"
+First time build. Skipping changelog.
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: NONE
+Warning: CredentialId "" could not be found.
+Cloning the remote Git repository
+Cloning repository https://github.com/RealKazbek/assanbek-kazbek-devops.git
+ > git init /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps # timeout=10
+Fetching upstream changes from https://github.com/RealKazbek/assanbek-kazbek-devops.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/RealKazbek/assanbek-kazbek-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/RealKazbek/assanbek-kazbek-devops.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 2a4a70a124ff6e42ca9224d706ab989e23a949fa (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 2a4a70a124ff6e42ca9224d706ab989e23a949fa # timeout=10
+Commit message: "Add Jenkins job configuration for GitHub pipeline"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+The recommended git tool is: NONE
+Warning: CredentialId "" could not be found.
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/RealKazbek/assanbek-kazbek-devops.git # timeout=10
+Fetching upstream changes from https://github.com/RealKazbek/assanbek-kazbek-devops.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/RealKazbek/assanbek-kazbek-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 2a4a70a124ff6e42ca9224d706ab989e23a949fa (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 2a4a70a124ff6e42ca9224d706ab989e23a949fa # timeout=10
+Commit message: "Add Jenkins job configuration for GitHub pipeline"
+[Pipeline] sh
++ git rev-parse --short HEAD
+2a4a70a
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
+Student: Kazbek Assanbek
+Group: IT2-2302
+Student ID: 37765
+[Pipeline] sh
++ python3 -m compileall app
+Listing 'app'...
+Compiling 'app/__init__.py'...
+Compiling 'app/app.py'...
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
++ python3 -m unittest discover -s tests -v
+test_default_student_data (test_app.StudentApplicationTests.test_default_student_data) ... ok
+test_environment_overrides_are_used (test_app.StudentApplicationTests.test_environment_overrides_are_used) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Build)
+[Pipeline] sh
++ /usr/bin/docker build -t assanbek-kazbek-devops:jenkins .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  306.2kB
+Step 1/7 : FROM python:3.13-alpine
+3.13-alpine: Pulling from library/python
+Digest: sha256:2d9aefe2fef018a7eb2c13064c89c71929800fd2e5dccdbf52ea5da5bb8d929a
+Status: Downloaded newer image for python:3.13-alpine
+ ---> 2d9aefe2fef0
+Step 2/7 : WORKDIR /app
+ ---> Running in f31463a27d26
+ ---> Removed intermediate container f31463a27d26
+ ---> e0640f93ae15
+Step 3/7 : COPY app/ /app/app/
+ ---> d7cab06de601
+Step 4/7 : RUN addgroup -S student && adduser -S student -G student && chown -R student:student /app
+ ---> Running in 3040a80d8c60
+ ---> Removed intermediate container 3040a80d8c60
+ ---> 06f426a9262a
+Step 5/7 : USER student
+ ---> Running in 7b1a23617607
+ ---> Removed intermediate container 7b1a23617607
+ ---> b347302406bf
+Step 6/7 : EXPOSE 8080
+ ---> Running in 40d1c86221a4
+ ---> Removed intermediate container 40d1c86221a4
+ ---> 7f9f07a564fe
+Step 7/7 : CMD ["python", "-m", "app.app"]
+ ---> Running in 3940f582fd27
+ ---> Removed intermediate container 3940f582fd27
+ ---> 0ce07fb007ce
+Successfully built 0ce07fb007ce
+Successfully tagged assanbek-kazbek-devops:jenkins
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Run)

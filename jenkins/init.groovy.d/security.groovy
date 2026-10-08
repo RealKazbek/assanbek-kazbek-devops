@@ -10,6 +10,8 @@ if (adminId && adminPassword && instance.getSecurityRealm().getClass() == Hudson
     def realm = instance.getSecurityRealm()
     if (realm.getUser(adminId) == null) {
         realm.createAccount(adminId, adminPassword)
+    } else {
+        realm.getUser(adminId).addProperty(HudsonPrivateSecurityRealm.Details.fromPlainPassword(adminPassword))
     }
 }
 
@@ -18,6 +20,8 @@ if (adminId && adminPassword) {
     def realm = instance.getSecurityRealm()
     if (realm.getUser(adminId) == null) {
         realm.createAccount(adminId, adminPassword)
+    } else {
+        realm.getUser(adminId).addProperty(HudsonPrivateSecurityRealm.Details.fromPlainPassword(adminPassword))
     }
     def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
     strategy.setAllowAnonymousRead(false)

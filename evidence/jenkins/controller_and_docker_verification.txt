@@ -1,0 +1,8 @@
+Jenkins controller security and binding:
+Ports={"8080/tcp":[{"HostIp":"127.0.0.1","HostPort":"8082"}]} Mounts=volume:/var/jenkins_home;bind:/var/run/docker.sock; User=jenkins
+Authenticated API HTTP 200
+Anonymous API HTTP 403
+Pipeline Docker container:
+assanbek-kazbek-jenkins-app | assanbek-kazbek-devops:jenkins | Up 28 seconds
+Pipeline image:
+assanbek-kazbek-devops:jenkins bf0e2b279384
