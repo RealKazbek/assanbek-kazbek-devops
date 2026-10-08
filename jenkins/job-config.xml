@@ -9,7 +9,6 @@
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
           <url>https://github.com/RealKazbek/assanbek-kazbek-devops.git</url>
-          <credentialsId></credentialsId>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>
       <branches>
