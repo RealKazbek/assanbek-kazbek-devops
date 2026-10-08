@@ -34,27 +34,27 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t "$IMAGE_NAME" .'
+                sh '/usr/bin/docker build -t "$IMAGE_NAME" .'
             }
         }
         stage('Docker Run') {
             steps {
                 sh '''#!/usr/bin/env bash
                     set -euo pipefail
-                    docker rm -f "$CONTAINER_NAME" 2>/dev/null || true
-                    docker run -d --name "$CONTAINER_NAME" \\
+                    /usr/bin/docker rm -f "$CONTAINER_NAME" 2>/dev/null || true
+                    /usr/bin/docker run -d --name "$CONTAINER_NAME" \\
                       -e STUDENT_NAME -e STUDENT_SURNAME -e STUDENT_GROUP -e STUDENT_ID \\
                       "$IMAGE_NAME"
                     sleep 2
-                    docker logs "$CONTAINER_NAME"
-                    docker exec "$CONTAINER_NAME" python -c "from app.app import application_text; print(application_text())"
+                    /usr/bin/docker logs "$CONTAINER_NAME"
+                    /usr/bin/docker exec "$CONTAINER_NAME" python -c "from app.app import application_text; print(application_text())"
                 '''
             }
         }
     }
     post {
         always {
-            sh 'docker ps -a --filter "name=$CONTAINER_NAME" || true'
+            sh '/usr/bin/docker ps -a --filter "name=$CONTAINER_NAME" || true'
         }
     }
 }

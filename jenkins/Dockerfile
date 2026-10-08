@@ -10,4 +10,6 @@ RUN jenkins-plugin-cli --plugins workflow-aggregator git credentials-binding
 
 COPY jenkins/init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
 
+ENV PATH="/usr/bin:${PATH}"
+
 USER jenkins
