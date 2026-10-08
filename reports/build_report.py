@@ -98,6 +98,6 @@ story += [p("Screenshots and Evidence", heading),
           p("Verification Summary", heading),
           table([["Area", "Status"], ["Linux tasks 1-5", "PASS"], ["Git tasks 6-9", "PASS"], ["GitHub task 10", "BLOCKED - publication approval/authentication"], ["Docker tasks 11-15", "PASS"], ["Jenkins tasks 16-20", "BLOCKED - job and actual run"], ["Integrated task 21", "BLOCKED - GitHub/Jenkins segment pending"]], [7*cm, 8*cm])]
 
-doc = SimpleDocTemplate(str(OUTPUT), pagesize=A4, rightMargin=2*cm, leftMargin=2*cm, topMargin=2*cm, bottomMargin=2*cm, title="DevOps Laboratory Work")
+doc = SimpleDocTemplate(str(OUTPUT), pagesize=A4, rightMargin=2*cm, leftMargin=2*cm, topMargin=2*cm, bottomMargin=2.7*cm, title="DevOps Laboratory Work")
 doc.build(story, onFirstPage=footer, onLaterPages=footer)
 print(OUTPUT)
