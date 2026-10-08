@@ -1,0 +1,90 @@
+Linux environment: Linux ee7d7e4e5d48 7.0.12-linuxkit #1 SMP PREEMPT Thu Aug 27 14:02:21 UTC 2026 aarch64 Linux
+== Task 1 commands ==
+/workspace
+total 36
+drwxr-xr-x   20 root     root           640 Oct  8 16:16 .
+drwxr-xr-x    1 root     root          4096 Oct  8 16:17 ..
+drwxr-xr-x   12 root     root           384 Oct  8 16:17 .git
+-rw-r--r--    1 root     root            48 Oct  8 16:16 .gitignore
+-rw-r--r--    1 root     root            80 Oct  8 16:16 Assanbek_Kazbek_info.txt
+-rw-r--r--    1 root     root           210 Oct  8 16:16 Dockerfile
+-rw-r--r--    1 root     root          1586 Oct  8 16:16 Jenkinsfile
+-rw-r--r--    1 root     root           336 Oct  8 16:16 README.md
+drwxr-xr-x    5 root     root           160 Oct  8 16:16 app
+drwxr-xr-x    2 root     root            64 Oct  8 16:16 backup
+drwxr-xr-x    3 root     root            96 Oct  8 16:16 config
+-rw-r--r--    1 root     root           310 Oct  8 16:16 docker-compose.yml
+drwxr-xr-x    5 root     root           160 Oct  8 16:16 evidence
+drwxr-xr-x    3 root     root            96 Oct  8 16:16 logs
+-rw-------    1 root     root            80 Oct  8 16:16 private.txt
+-rw-r--r--    1 root     root            63 Oct  8 16:16 public.txt
+drwxr-xr-x    2 root     root            64 Oct  8 16:16 reports
+drwxr-xr-x    3 root     root            96 Oct  8 16:16 scripts
+drwxr-xr-x    4 root     root           128 Oct  8 16:16 tests
+drwxr-xr-x    2 root     root            64 Oct  8 16:16 tmp
+/workspace/scripts
+Name: Kazbek
+Surname: Assanbek
+Group: IT2-2302
+Student ID: 37765
+Course: DevOps
+Name: Kazbek
+Surname: Assanbek
+Group: IT2-2302
+Student ID: 37765
+Course: DevOps
+== Task 2 search and processing ==
+./logs/application.log
+2026-10-08T20:04:40Z ERROR Database connection failed
+2026-10-08T20:07:30Z ERROR Request processing failed
+2026-10-08T20:02:03Z WARNING Configuration cache is stale
+2026-10-08T20:06:15Z WARNING Memory usage is high
+2
+2026-10-08T20:05:02Z INFO Retrying database connection
+2026-10-08T20:06:15Z WARNING Memory usage is high
+2026-10-08T20:07:30Z ERROR Request processing failed
+2026-10-08T20:08:11Z INFO Application restarted
+2026-10-08T20:09:44Z INFO Application is ready
+== Task 3 permissions ==
+-rw-------    1 root     root            80 Oct  8 16:16 private.txt
+-rw-r--r--    1 root     root            63 Oct  8 16:16 public.txt
+== Task 4 script ==
+==============================
+Student Information
+==============================
+Name: Kazbek
+Surname: Assanbek
+Group: IT2-2302
+Student ID: 37765
+==============================
+System Information
+==============================
+Username: root
+Hostname: ee7d7e4e5d48
+Current Date: 2026-10-08 16:18:03 UTC
+Operating System: Linux 7.0.12-linuxkit aarch64
+Disk Usage:
+overlay                 223.6G     31.8G    180.3G  15% /
+Memory Usage:
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       605Mi       2.8Gi       496Ki       596Mi       3.2Gi
+Swap:          1.0Gi          0B       1.0Gi
+Student information file exists.
+== Task 5 processes ==
+    PID TTY          TIME CMD
+      1 ?        00:00:00 sh
+     40 ?        00:00:00 ps
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0   1744  1228 ?        Ss   16:17   0:00 sh -lc    apk add --no-cache bash procps >/dev/null   {     echo "Linux environment: $(uname -a)"     echo "== Task 1 commands =="     pwd     ls -la     cd scripts && pwd && cd ..     mkdir -p /tmp/assanbek_kazbek_demo     touch /tmp/assanbek_kazbek_demo/source.txt     cp /tmp/assanbek_kazbek_demo/source.txt /tmp/assanbek_kazbek_demo/copy.txt     mv /tmp/assanbek_kazbek_demo/copy.txt /tmp/assanbek_kazbek_demo/moved.txt     rm /tmp/assanbek_kazbek_demo/moved.txt     cat Assanbek_Kazbek_info.txt     head -n 3 Assanbek_Kazbek_info.txt     tail -n 2 Assanbek_Kazbek_info.txt     echo "== Task 2 search and processing =="     find . -name application.log -print     grep ERROR logs/application.log     grep WARNING logs/application.log     grep -c ERROR logs/application.log     tail -n 5 logs/application.log     echo "== Task 3 permissions =="     chmod 600 private.txt     chmod 644 public.txt     ls -l private.txt public.txt     echo "== Task 4 script =="     bash scripts/Assanbek_Kazbek_system.sh     echo "== Task 5 processes =="     ps     ps aux | head -n 6     top -b -n 1 | head -n 12   } > evidence/linux/linux_commands.txt 2>&1 
+root          41  0.0  0.0   2752  1796 ?        R    16:18   0:00 ps aux
+root          42  0.0  0.0   1716   924 ?        S    16:18   0:00 head -n 6
+top - 16:18:03 up 0 min,  0 user,  load average: 0.42, 0.17, 0.06
+Tasks:   3 total,   1 running,   2 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  1.6 sy,  0.0 ni, 98.4 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   3916.6 total,   2895.5 free,    608.0 used,    596.6 buff/cache     
+MiB Swap:   1024.0 total,   1024.0 free,      0.0 used.   3308.7 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0    1744   1228   1136 S   0.0   0.0   0:00.00 sh
+     43 root      20   0    3896   2968   1196 R   0.0   0.1   0:00.00 top
+     44 root      20   0    1716    828    784 S   0.0   0.0   0:00.00 head
