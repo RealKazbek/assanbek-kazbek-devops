@@ -1,0 +1,87 @@
+== Compose up ==
+assanbek-kazbek-container
+ Image assanbek-kazbek-devops:compose Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 579B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 249B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-alpine
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/python:3.13-alpine@sha256:2d9aefe2fef018a7eb2c13064c89c71929800fd2e5dccdbf52ea5da5bb8d929a
+#5 resolve docker.io/library/python:3.13-alpine@sha256:2d9aefe2fef018a7eb2c13064c89c71929800fd2e5dccdbf52ea5da5bb8d929a done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 239B done
+#6 DONE 0.0s
+
+#7 [2/4] WORKDIR /app
+#7 CACHED
+
+#8 [3/4] COPY app/ /app/app/
+#8 CACHED
+
+#9 [4/4] RUN addgroup -S student && adduser -S student -G student && chown -R student:student /app
+#9 CACHED
+
+#10 exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:d1a6a56b3fc8c1f97623fa7d32567b35c6489a0e0498a9a97debdab501eff7ca done
+#10 exporting config sha256:7d526dc2a7b7108075bc68ba41a1e8e5ca966039930cc0d6a6a728c52203e8b5 done
+#10 exporting attestation manifest sha256:f5b4b742eac503c9e9098679e1f61ec4cf16ac96c077f78c0b49285d9971e5dc done
+#10 exporting manifest list sha256:3b6759263251220af4ca6472215c46474183d131c3a664776907a566f31d1a97 done
+#10 naming to docker.io/library/assanbek-kazbek-devops:compose done
+#10 unpacking to docker.io/library/assanbek-kazbek-devops:compose done
+#10 DONE 0.0s
+
+#11 resolving provenance for metadata file
+#11 DONE 0.0s
+ Image assanbek-kazbek-devops:compose Built 
+ Network assanbek_kazbek_default Creating 
+ Network assanbek_kazbek_default Creating 
+ Network assanbek_kazbek_default Created 
+ Network assanbek_kazbek_default Created 
+ Container assanbek-kazbek-compose Creating 
+ Container assanbek-kazbek-compose Created 
+ Container assanbek-kazbek-compose Starting 
+ Container assanbek-kazbek-compose Started 
+NAME                      IMAGE                            COMMAND               SERVICE       CREATED         STATUS         PORTS
+assanbek-kazbek-compose   assanbek-kazbek-devops:compose   "python -m app.app"   student-app   2 seconds ago   Up 2 seconds   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+== Compose logs ==
+assanbek-kazbek-compose  | ================================
+assanbek-kazbek-compose  | DevOps Student Application
+assanbek-kazbek-compose  | ================================
+assanbek-kazbek-compose  | Name: Kazbek
+assanbek-kazbek-compose  | Surname: Assanbek
+assanbek-kazbek-compose  | Group: IT2-2302
+assanbek-kazbek-compose  | Student ID: 37765
+assanbek-kazbek-compose  | 
+assanbek-kazbek-compose  | Application is running successfully!
+assanbek-kazbek-compose  | 
+assanbek-kazbek-compose  | Listening on port 8080
+== Compose down ==
+ Container assanbek-kazbek-compose Stopping 
+ Container assanbek-kazbek-compose Stopped 
+ Container assanbek-kazbek-compose Removing 
+ Container assanbek-kazbek-compose Removed 
+ Network assanbek_kazbek_default Removing 
+ Network assanbek_kazbek_default Removed 
+== Container removal demonstration ==
+ca0c76351c24558797e815aa8872a39bb5e811906dfc0dc953b592fed5b669bd
+assanbek-kazbek-removal-demo
+== Final required container ==
+7288c510a30e9904ac56556e91c5c6aaf12fab2ac62fb33a52fdc497caefd9e2
+CONTAINER ID   IMAGE                    COMMAND               CREATED        STATUS        PORTS                                         NAMES
+7288c510a30e   assanbek-kazbek-devops   "python -m app.app"   1 second ago   Up 1 second   0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp   assanbek-kazbek-container
