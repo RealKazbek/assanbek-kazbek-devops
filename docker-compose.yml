@@ -1,0 +1,13 @@
+services:
+  student-app:
+    build: .
+    image: assanbek-kazbek-devops:compose
+    container_name: assanbek-kazbek-compose
+    ports:
+      - "8080:8080"
+    environment:
+      STUDENT_NAME: Kazbek
+      STUDENT_SURNAME: Assanbek
+      STUDENT_GROUP: IT2-2302
+      STUDENT_ID: "37765"
+      APP_PORT: "8080"
