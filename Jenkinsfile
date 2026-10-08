@@ -7,7 +7,7 @@ pipeline {
         STUDENT_GROUP = 'IT2-2302'
         STUDENT_ID = '37765'
         IMAGE_NAME = 'assanbek-kazbek-devops:jenkins'
-        CONTAINER_NAME = 'assanbek-kazbek-jenkins'
+        CONTAINER_NAME = 'assanbek-kazbek-jenkins-app'
     }
 
     stages {
