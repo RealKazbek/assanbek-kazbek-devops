@@ -1,0 +1,12 @@
+* 6c0f130 (HEAD -> main, origin/main) Ignore local report rendering artifacts
+* c24b034 Improve report page layout verification
+* 24148bc Add verification checklist video guide and report
+*   e5b03c7 Merge development documentation updates
+|\  
+| * e602227 (development) Document Linux and Docker operating procedures
+|/  
+* f1c2df2 Verify Docker Compose and container lifecycle
+* 0c89c2d Build and verify personalized Docker application
+* 471484f Record Linux command and permission verification
+* 9e2021d Add environment configurable student application
+* 0a1913e Initialize personalized DevOps project structure
