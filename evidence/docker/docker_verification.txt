@@ -1,0 +1,111 @@
+== Docker version ==
+Server 29.7.2 linux/arm64
+== Build ==
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 249B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 DONE 2.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 6.01kB done
+#5 DONE 0.0s
+
+#6 [1/4] FROM docker.io/library/python:3.13-alpine@sha256:2d9aefe2fef018a7eb2c13064c89c71929800fd2e5dccdbf52ea5da5bb8d929a
+#6 resolve docker.io/library/python:3.13-alpine@sha256:2d9aefe2fef018a7eb2c13064c89c71929800fd2e5dccdbf52ea5da5bb8d929a done
+#6 sha256:6db16a24faac868ed8ff2907cf959c95080b09ef848554d2608a1bdbe21cc26c 0B / 249B 0.2s
+#6 sha256:6db16a24faac868ed8ff2907cf959c95080b09ef848554d2608a1bdbe21cc26c 249B / 249B 0.3s done
+#6 sha256:02bd2e91174af6cde81fb107aff757fec0d7295b1d0e14c5e77a8d78cb39ec05 0B / 419.11kB 0.2s
+#6 sha256:4617d3b3593616fadcdd6bdd0634753e2135ae2d2612abcd71e8c726f3084fdc 0B / 15.65MB 0.2s
+#6 sha256:4617d3b3593616fadcdd6bdd0634753e2135ae2d2612abcd71e8c726f3084fdc 2.10MB / 15.65MB 0.9s
+#6 sha256:4617d3b3593616fadcdd6bdd0634753e2135ae2d2612abcd71e8c726f3084fdc 6.29MB / 15.65MB 1.1s
+#6 sha256:02bd2e91174af6cde81fb107aff757fec0d7295b1d0e14c5e77a8d78cb39ec05 419.11kB / 419.11kB 1.2s done
+#6 sha256:4617d3b3593616fadcdd6bdd0634753e2135ae2d2612abcd71e8c726f3084fdc 15.65MB / 15.65MB 1.3s done
+#6 extracting sha256:02bd2e91174af6cde81fb107aff757fec0d7295b1d0e14c5e77a8d78cb39ec05 0.1s done
+#6 extracting sha256:4617d3b3593616fadcdd6bdd0634753e2135ae2d2612abcd71e8c726f3084fdc
+#6 extracting sha256:4617d3b3593616fadcdd6bdd0634753e2135ae2d2612abcd71e8c726f3084fdc 0.2s done
+#6 DONE 1.5s
+
+#6 [1/4] FROM docker.io/library/python:3.13-alpine@sha256:2d9aefe2fef018a7eb2c13064c89c71929800fd2e5dccdbf52ea5da5bb8d929a
+#6 extracting sha256:6db16a24faac868ed8ff2907cf959c95080b09ef848554d2608a1bdbe21cc26c done
+#6 DONE 1.5s
+
+#7 [2/4] WORKDIR /app
+#7 DONE 0.1s
+
+#8 [3/4] COPY app/ /app/app/
+#8 DONE 0.0s
+
+#9 [4/4] RUN addgroup -S student && adduser -S student -G student && chown -R student:student /app
+#9 DONE 0.1s
+
+#10 exporting to image
+#10 exporting layers 0.0s done
+#10 exporting manifest sha256:41ef92803da765d419e75cc2d82077bb7253ab46ed5eff64bdf934f7e23e8061 done
+#10 exporting config sha256:fec5df204facde2c95d11f957134557858a3b193352804987e1480fa3c84471a done
+#10 exporting attestation manifest sha256:ab1744eeed4e488a0f304e67c5ffd1d6d3eb83cbb3882d4b2f704c7efc6de302 done
+#10 exporting manifest list sha256:720f7627301ed663a874b707f1a6e51d38bdf19c58750d8016d3d04edbb9dd50 done
+#10 naming to docker.io/library/assanbek-kazbek-devops:latest done
+#10 unpacking to docker.io/library/assanbek-kazbek-devops:latest 0.0s done
+#10 DONE 0.1s
+== Images ==
+IMAGE                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+assanbek-kazbek-devops:latest   720f7627301e         83MB         20.3MB        
+== Initial run with required environment ==
+585d518ab1f6224e1193669a15cdb54b385fca000b56c4855f34977047f84130
+CONTAINER ID   IMAGE                    COMMAND               CREATED         STATUS         PORTS                                         NAMES
+585d518ab1f6   assanbek-kazbek-devops   "python -m app.app"   3 seconds ago   Up 2 seconds   0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp   assanbek-kazbek-container
+CONTAINER ID   IMAGE                    COMMAND               CREATED         STATUS         PORTS                                         NAMES
+585d518ab1f6   assanbek-kazbek-devops   "python -m app.app"   3 seconds ago   Up 2 seconds   0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp   assanbek-kazbek-container
+== Container logs ==
+================================
+DevOps Student Application
+================================
+Name: Kazbek
+Surname: Assanbek
+Group: IT2-2302
+Student ID: 37765
+
+Application is running successfully!
+
+Listening on port 8080
+== docker exec application output ==
+================================
+DevOps Student Application
+================================
+Name: Kazbek
+Surname: Assanbek
+Group: IT2-2302
+Student ID: 37765
+
+Application is running successfully!
+
+== Environment override evidence ==
+================================
+DevOps Student Application
+================================
+Name: Changed
+Surname: Student
+Group: DEMO-1
+Student ID: 99999
+
+Application is running successfully!
+
+== Stop and start ==
+assanbek-kazbek-container
+assanbek-kazbek-container
+CONTAINER ID   IMAGE                    COMMAND               CREATED         STATUS                  PORTS                                         NAMES
+585d518ab1f6   assanbek-kazbek-devops   "python -m app.app"   7 seconds ago   Up Less than a second   0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp   assanbek-kazbek-container
