@@ -20,4 +20,6 @@ Docker Compose describes related container configuration in one version-controll
 
 ## Integrated workflow
 
-Linux supplies a repeatable command-line environment for building and operating the project. Git records changes and supports safe branches. GitHub hosts the shared repository that Jenkins checks out. When the pipeline starts, Jenkins obtains the selected commit, compiles the Python sources, runs unit tests, builds the Docker image, and starts a named test container. If a stage fails, Jenkins stops later stages and reports failure, preventing an unverified image from being treated as successful.
+Linux is used here because `find`, `grep`, `chmod`, `ps`, `top`, and `free` are shown in a real Linux container instead of being substituted with macOS output. Git records the project files and the merge of `development` into `main`. GitHub is the public remote repository at `RealKazbek/assanbek-kazbek-devops`; Jenkins uses its SCM URL to select a commit from `main`.
+
+Jenkins builds a Docker image so that the tested Python application and its runtime command are packaged together. An image is the reusable package; a container is one running instance of that package. When this pipeline starts, Jenkins checks out the configured SHA, compiles `app`, runs `tests`, builds `assanbek-kazbek-devops:jenkins`, starts `assanbek-kazbek-jenkins-app`, and checks its `/health` endpoint inside the container. If a stage fails, Jenkins marks the build failed and does not run later normal stages; this prevents a failed build from reaching Docker Run.

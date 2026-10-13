@@ -48,6 +48,7 @@ pipeline {
                     sleep 2
                     /usr/bin/docker logs "$CONTAINER_NAME"
                     /usr/bin/docker exec "$CONTAINER_NAME" python -c "from app.app import application_text; print(application_text())"
+                    /usr/bin/docker exec "$CONTAINER_NAME" python -c "from urllib.request import urlopen; response = urlopen('http://127.0.0.1:8080/health', timeout=2); assert response.status == 200 and response.read() == b'OK\\n'"
                 '''
             }
         }

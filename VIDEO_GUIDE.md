@@ -18,7 +18,7 @@ Record one continuous 10-20 minute screen recording with your own voice. Begin w
 | 15:30-18:00 | Jenkins dashboard, job, stage view, console output | “Jenkins checked out this commit, built, tested, built the image, and ran the container. The final result is Finished: SUCCESS.” |
 | 18:00-19:00 | `CHECKLIST.md` and report | “This checklist links every task to its evidence.” |
 
-Do not claim the GitHub or Jenkins portions until they are actually completed. Once they are completed, replace the relevant pending wording in the report and checklist before recording.
+Before recording, verify the GitHub page, the current Jenkins job, the stage view, and the console output live. If a current Jenkins run has not been completed, state that honestly and do not record the Jenkins success section as if it were current.
 
 ## Short speaking answers
 

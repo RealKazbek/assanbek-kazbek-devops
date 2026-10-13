@@ -2,11 +2,11 @@
 
 This repository is the individual DevOps laboratory project of Kazbek Assanbek (IT2-2302, Student ID 37765).
 
-It demonstrates a complete Linux, Git, Docker, and Jenkins workflow. See `CHECKLIST.md` for current verification status, `reports/` for the report, `VIDEO_GUIDE.md` for the recording walkthrough, and `docs/OPERATIONS.md` for concise command explanations. `evidence/SCREENSHOT_CAPTURE_STATUS.md` distinguishes real command evidence from visual screenshots that still need to be captured during the student's own demonstration.
+This repository contains the implemented Linux, Git, Docker, and Jenkins laboratory work. Historical Jenkins Build #2 is documented in the evidence directory; a fresh run is required before claiming that the latest commit has passed Jenkins. See `CHECKLIST.md` for current verification status, `reports/` for reports, `VIDEO_GUIDE.md` for the recording walkthrough, and `docs/OPERATIONS.md` for project-specific command explanations.
 
 Repository: https://github.com/RealKazbek/assanbek-kazbek-devops
 
-The local Jenkins job `Assanbek_Kazbek_DevOps` successfully checked out the public repository, compiled and tested the application, built `assanbek-kazbek-devops:jenkins`, and ran `assanbek-kazbek-jenkins-app`. Genuine console evidence is in `evidence/jenkins/console_build_2.txt`.
+The local Jenkins job `Assanbek_Kazbek_DevOps` historically checked out the public repository, compiled and tested the application, built `assanbek-kazbek-devops:jenkins`, and ran `assanbek-kazbek-jenkins-app`. The historical console is `evidence/jenkins/console_build_2.txt`; graphical Jenkins evidence and a latest-main rerun remain pending.
 
 ## Local verification
 

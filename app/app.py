@@ -48,11 +48,20 @@ class StudentHandler(BaseHTTPRequestHandler):
         print("HTTP %s - %s" % (self.address_string(), format_string % args), flush=True)
 
 
+def create_server(port):
+    """Create the HTTP server so tests can use an ephemeral local port."""
+    return HTTPServer(("0.0.0.0", port), StudentHandler)
+
+
 def main():
     port = int(os.getenv("APP_PORT", "8080"))
     print(application_text(), flush=True)
     print(f"Listening on port {port}", flush=True)
-    HTTPServer(("0.0.0.0", port), StudentHandler).serve_forever()
+    server = create_server(port)
+    try:
+        server.serve_forever()
+    finally:
+        server.server_close()
 
 
 if __name__ == "__main__":
