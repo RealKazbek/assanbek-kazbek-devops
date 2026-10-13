@@ -19,12 +19,12 @@ Status key: PASS = performed and evidence exists; BLOCKED = needs an external ac
 | 13 | Environment variables | `docker run -e ...` | Required values and a changed-value example displayed | `evidence/docker/docker_verification.txt` | PASS |
 | 14 | Container management | logs, stop/start, rm, exec | All performed on dedicated laboratory containers | Docker evidence files | PASS |
 | 15 | Docker Compose | `docker compose up -d --build`, down | Compose start, logs, and down completed | `evidence/docker/compose_and_management.txt` | PASS |
-| 16 | Jenkins Job | Job `Assanbek_Kazbek_DevOps` | Authenticated local Jenkins job created and build #2 executed | `jenkins/job-config.xml`, `evidence/jenkins/console_build_2.txt` | PASS |
-| 17 | Declarative Jenkinsfile | Required meaningful stages | Checkout, Build, Test, Docker Build and Docker Run executed | `Jenkinsfile`, `evidence/jenkins/console_build_2.txt` | PASS |
-| 18 | Jenkins checkout from GitHub | SCM checkout then build/test/Docker | Build #2 checked out public GitHub commit `e16e061` | `evidence/jenkins/console_build_2.txt` | PASS |
-| 19 | Jenkins environment output | Student details in console | Required name, group and ID lines displayed | `evidence/jenkins/console_build_2.txt` | PASS |
-| 20 | Successful pipeline | `Finished: SUCCESS` plus dashboard evidence | Build #2 ended successfully and its console is retained; required graphical Dashboard/Job/stage screenshots were not captured | `evidence/jenkins/console_build_2.txt`, `evidence/SCREENSHOT_CAPTURE_STATUS.md` | PARTIAL |
-| 21 | Integrated workflow | Explain actual workflow | Linux → Git → GitHub → Jenkins → Test → Docker build/run → SUCCESS is technically verified; own-voice demonstration remains pending | `docs/OPERATIONS.md`, `evidence/linux/`, `evidence/github/`, `evidence/jenkins/` | PARTIAL |
+| 16 | Jenkins Job | Job `Assanbek_Kazbek_DevOps` | Authenticated local job exists; live SCM config uses public URL and `*/main`, with no empty credentialsId | `jenkins/job-config.xml`, `evidence/jenkins/job_api.json` | PASS |
+| 17 | Declarative Jenkinsfile | Required meaningful stages | Checkout, Build, Test, Docker Build and Docker Run all executed in current build | `Jenkinsfile`, `evidence/jenkins/console_build_3_current_main.txt` | PASS |
+| 18 | Jenkins checkout from GitHub | SCM checkout then build/test/Docker | Live build #2 checked out public GitHub `main` commit `b56d47e` | `evidence/jenkins/console_build_3_current_main.txt`, `evidence/jenkins/build_3_api.json` | PASS |
+| 19 | Jenkins environment output | Student details in console | Required name, group and ID lines displayed in current build | `evidence/jenkins/console_build_3_current_main.txt` | PASS |
+| 20 | Successful pipeline | `Finished: SUCCESS` plus dashboard evidence | Current build #2 ended successfully on current main; graphical Dashboard/Job/stage screenshots remain blocked | `evidence/jenkins/console_build_3_current_main.txt`, `evidence/jenkins/build_3_api.json`, `evidence/SCREENSHOT_CAPTURE_STATUS.md` | PARTIAL |
+| 21 | Integrated workflow | Explain actual workflow | Linux → Git → GitHub → Jenkins → Test → Docker build/run → SUCCESS is technically verified; own-voice demonstration remains pending | `docs/OPERATIONS.md`, `VIDEO_GUIDE.md`, evidence directories | PARTIAL |
 
 ## Instructor submission checklist
 

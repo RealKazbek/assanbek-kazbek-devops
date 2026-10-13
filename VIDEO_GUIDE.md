@@ -20,6 +20,41 @@ Record one continuous 10-20 minute screen recording with your own voice. Begin w
 
 Before recording, verify the GitHub page, the current Jenkins job, the stage view, and the console output live. If a current Jenkins run has not been completed, state that honestly and do not record the Jenkins success section as if it were current.
 
+## Exact commands to prepare before recording
+
+Run the Linux section in a Linux container, not macOS:
+
+```sh
+docker run --rm -it -v "$PWD":/workspace -w /workspace alpine:3.20 sh
+apk add --no-cache bash procps
+chmod +x scripts/Assanbek_Kazbek_system.sh
+./scripts/Assanbek_Kazbek_system.sh
+find . -name application.log -print
+grep ERROR logs/application.log; grep WARNING logs/application.log; grep -c ERROR logs/application.log
+tail -n 5 logs/application.log
+ls -l private.txt public.txt
+ps; ps aux | head; top -b -n 1 | head -n 12
+```
+
+Use these safe macOS commands for Git and Docker:
+
+```sh
+git status; git log --oneline --graph --decorate --all -12; git branch -avv
+git remote -v; git ls-remote origin refs/heads/main
+python3 -m unittest discover -s tests -v
+docker build -t assanbek-kazbek-devops:demo .
+docker run -d --name assanbek-kazbek-demo -p 127.0.0.1:18080:8080 -e STUDENT_NAME=Kazbek -e STUDENT_SURNAME=Assanbek -e STUDENT_GROUP=IT2-2302 -e STUDENT_ID=37765 assanbek-kazbek-devops:demo
+curl -fsS http://127.0.0.1:18080/health; docker logs assanbek-kazbek-demo; docker exec assanbek-kazbek-demo python -c 'from app.app import application_text; print(application_text())'
+docker stop assanbek-kazbek-demo; docker start assanbek-kazbek-demo; docker rm -f assanbek-kazbek-demo
+docker compose up -d --build; docker compose ps; docker compose logs --tail=30; docker compose down
+```
+
+For Jenkins, open `http://127.0.0.1:8082`, sign in to the local controller, open `Assanbek_Kazbek_DevOps`, select the latest successful build, then show Pipeline/Stage View and Console Output. In Console Output, point to `Checking out Revision b56d47e...` and `Finished: SUCCESS`.
+
+## macOS recording
+
+Open **QuickTime Player** → **File** → **New Screen Recording**. In the options menu select the built-in microphone, record the full screen, and keep the recording continuous for 10–20 minutes. macOS may ask for Screen Recording and Microphone permissions; allow them in System Settings only for QuickTime. Speak naturally, do not read passwords or tokens aloud, and save the unedited recording. Capture real PNG screenshots during the same session: GitHub repository, branch/graph, Linux terminal, Docker/Compose terminal, Jenkins Dashboard, job, Stage View and Console Output.
+
 ## Short speaking answers
 
 **Why Linux?** Linux provides a common, scriptable environment for servers and automation.

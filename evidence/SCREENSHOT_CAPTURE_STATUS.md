@@ -1,10 +1,10 @@
 # Screenshot Evidence Status
 
-Date checked: 2026-10-09
+Date checked: 2026-10-13
 
 No screenshots were fabricated or reconstructed for this project.
 
-The current work environment permits command-line and API operations only. It does not permit opening or controlling a browser, desktop, mouse, keyboard, Terminal window, or Jenkins graphical interface. Therefore the following required visual screenshots are currently blocked:
+The current work environment permits command-line and API operations and has a real local Jenkins controller, but it has no available browser-control surface for saving authentic interface images. Therefore the following required visual screenshots are currently blocked:
 
 - GitHub repository page and `main` branch page;
 - Jenkins Dashboard;
@@ -12,7 +12,7 @@ The current work environment permits command-line and API operations only. It do
 - Jenkins Pipeline stage view;
 - Jenkins Console Output page.
 
-Existing genuine terminal/API evidence is retained in `evidence/github/`, `evidence/docker/`, `evidence/linux/`, and `evidence/jenkins/`. In particular, `evidence/jenkins/console_build_2.txt` contains the actual five executed stages, commit `e16e061`, and `Finished: SUCCESS`.
+Existing genuine terminal/API evidence is retained in `evidence/github/`, `evidence/docker/`, `evidence/linux/`, and `evidence/jenkins/`. In particular, the live Jenkins controller executed `Assanbek_Kazbek_DevOps` build #2 on 2026-10-13 against `b56d47ede92be4388865efa298ee8a41d23287ca`; `console_build_3_current_main.txt` and `build_3_api.json` show all five stages and `Finished: SUCCESS`.
 
 ## Manual capture instructions
 
