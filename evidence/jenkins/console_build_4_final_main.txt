@@ -1,0 +1,172 @@
+Started by user kazbek_admin
+Checking out git https://github.com/RealKazbek/assanbek-kazbek-devops.git into /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps@script/29cb9aecb52633ba92641984d318a8cc5d2b2d5615b11f89bd4f68a42d1c4815 to read Jenkinsfile
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps@script/29cb9aecb52633ba92641984d318a8cc5d2b2d5615b11f89bd4f68a42d1c4815/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/RealKazbek/assanbek-kazbek-devops.git # timeout=10
+Fetching upstream changes from https://github.com/RealKazbek/assanbek-kazbek-devops.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/RealKazbek/assanbek-kazbek-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision b1019ec33635ad334e47a391124908b8002823ee (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b1019ec33635ad334e47a391124908b8002823ee # timeout=10
+Commit message: "Verify live Jenkins pipeline and refresh lab report"
+ > git rev-list --no-walk b56d47ede92be4388865efa298ee8a41d23287ca # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/RealKazbek/assanbek-kazbek-devops.git # timeout=10
+Fetching upstream changes from https://github.com/RealKazbek/assanbek-kazbek-devops.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/RealKazbek/assanbek-kazbek-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision b1019ec33635ad334e47a391124908b8002823ee (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b1019ec33635ad334e47a391124908b8002823ee # timeout=10
+Commit message: "Verify live Jenkins pipeline and refresh lab report"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Assanbek_Kazbek_DevOps/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/RealKazbek/assanbek-kazbek-devops.git # timeout=10
+Fetching upstream changes from https://github.com/RealKazbek/assanbek-kazbek-devops.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/RealKazbek/assanbek-kazbek-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision b1019ec33635ad334e47a391124908b8002823ee (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b1019ec33635ad334e47a391124908b8002823ee # timeout=10
+Commit message: "Verify live Jenkins pipeline and refresh lab report"
+[Pipeline] sh
++ git rev-parse --short HEAD
+b1019ec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
+Student: Kazbek Assanbek
+Group: IT2-2302
+Student ID: 37765
+[Pipeline] sh
++ python3 -m compileall app
+Listing 'app'...
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
++ python3 -m unittest discover -s tests -v
+test_default_student_data (test_app.StudentApplicationTests.test_default_student_data) ... ok
+test_environment_overrides_are_used (test_app.StudentApplicationTests.test_environment_overrides_are_used) ... ok
+test_http_root_health_and_not_found (test_app.StudentApplicationTests.test_http_root_health_and_not_found) ... HTTP 127.0.0.1 - "GET / HTTP/1.1" 200 -
+HTTP 127.0.0.1 - "GET /health HTTP/1.1" 200 -
+HTTP 127.0.0.1 - code 404, message Not found
+HTTP 127.0.0.1 - "GET /missing HTTP/1.1" 404 -
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.520s
+
+OK
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Build)
+[Pipeline] sh
++ /usr/bin/docker build -t assanbek-kazbek-devops:jenkins .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  59.39kB
+Step 1/7 : FROM python:3.13-alpine
+ ---> 2d9aefe2fef0
+Step 2/7 : WORKDIR /app
+ ---> Using cache
+ ---> 81b64863a3a4
+Step 3/7 : COPY app/ /app/app/
+ ---> Using cache
+ ---> ba70bd1e4215
+Step 4/7 : RUN addgroup -S student && adduser -S student -G student && chown -R student:student /app
+ ---> Using cache
+ ---> 7e3fcd639e8a
+Step 5/7 : USER student
+ ---> Using cache
+ ---> 259ccd1bc706
+Step 6/7 : EXPOSE 8080
+ ---> Using cache
+ ---> 3a1b1103a6b2
+Step 7/7 : CMD ["python", "-m", "app.app"]
+ ---> Using cache
+ ---> 9e855c04ca2e
+Successfully built 9e855c04ca2e
+Successfully tagged assanbek-kazbek-devops:jenkins
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Run)
+[Pipeline] sh
+assanbek-kazbek-jenkins-app
+816e9517b3b67567300aab949f45ebbadbbeaaabb8f70f7ac7ee4ab169dd54c7
+================================
+DevOps Student Application
+================================
+Name: Kazbek
+Surname: Assanbek
+Group: IT2-2302
+Student ID: 37765
+
+Application is running successfully!
+
+Listening on port 8080
+================================
+DevOps Student Application
+================================
+Name: Kazbek
+Surname: Assanbek
+Group: IT2-2302
+Student ID: 37765
+
+Application is running successfully!
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] sh
++ /usr/bin/docker ps -a --filter name=assanbek-kazbek-jenkins-app
+CONTAINER ID   IMAGE                            COMMAND               CREATED         STATUS         PORTS      NAMES
+816e9517b3b6   assanbek-kazbek-devops:jenkins   "python -m app.app"   3 seconds ago   Up 2 seconds   8080/tcp   assanbek-kazbek-jenkins-app
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
