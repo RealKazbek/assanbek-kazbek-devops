@@ -21,7 +21,13 @@ echo "Operating System: $(uname -srm)"
 echo "Disk Usage:"
 df -h / | tail -n 1
 echo "Memory Usage:"
-free -h
+if command -v free >/dev/null 2>&1; then
+  # GNU/Linux: required by the laboratory assignment.
+  free -h
+else
+  # Keep the script runnable for audit hosts that are not GNU/Linux.
+  echo "The Linux 'free' utility is unavailable on this host. Run this script on GNU/Linux for memory statistics."
+fi
 
 if [[ -f "$INFO_FILE" ]]; then
   echo "Student information file exists."
